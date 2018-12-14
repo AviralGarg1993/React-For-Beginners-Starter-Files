@@ -1,3 +1,4 @@
-* React
-* Firebase
-    * Real-time database + webhooks
+- React
+- Firebase
+  - Real-time database + webhooks
+- Stylus + eject

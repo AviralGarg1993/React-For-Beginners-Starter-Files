@@ -6,11 +6,15 @@ import Inventory from "./Inventory";
 import sampleFishes from "../sample-fishes";
 import Fish from "./Fish";
 import base from "../base";
-
+import PropTypes from "prop-types";
 class App extends React.Component {
   state = {
     fishes: {},
     order: {}
+  };
+
+  static propTypes = {
+    match: PropTypes.object
   };
   componentDidMount() {
     const { params } = this.props.match;
@@ -78,7 +82,7 @@ class App extends React.Component {
   decrementFishOrder = key => {
     const order = { ...this.state.order };
     order[key] = order[key] - 1;
-    if (order[key] <= 1) {
+    if (order[key] < 1) {
       delete order[key];
     }
     this.setState({ order });
